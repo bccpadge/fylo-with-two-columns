@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Frontend Mentor]()
-- Live Site URL: [GitHub Pages]()
+- Live Site URL: [GitHub Pages](https://bccpadge.github.io/fylo-with-two-columns/)
 
 ## My process
 
@@ -57,8 +57,8 @@ I learned how to add a scroll to top button to this website and add Scroll Revea
 
 ```html
 <a href="#top" class="footer__scroll active" aria-label="click to scroll to top of page" data-js-top>
-      <i class="fa-solid fa-arrow-up"></i>
-    </a>
+  <i class="fa-solid fa-arrow-up"></i>
+</a>
 ```
 
 ```js
