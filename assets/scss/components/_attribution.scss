@@ -1,11 +1,14 @@
 @use "../abstracts/mixins" as *;
 
 .attribution {
-  font-size: 11px;
+  --clr-text: 0 0% 100%;
+  font-size: 0.6875rem;
   text-align: center;
   position: fixed;
   inset: auto auto 1rem 1rem;
   display: none;
+  color: hsl(var(--clr-text));
+
 
   @include breakpoint-min(62em) {
     display: block;
@@ -13,6 +16,6 @@
 
 
   a {
-    color: hsl(228, 45%, 44%);
+    color: currentColor
   }
 }
