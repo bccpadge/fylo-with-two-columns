@@ -1,0 +1,56 @@
+@use "../abstracts/mixins" as *;
+
+.contact {
+  --_clr-white: 0 0% 100%;
+  background-color: hsl(var(--clr-desaturated-blue));
+  color: hsl(var(--_clr-white));
+  padding-block: 5.625rem;
+  padding-inline: 1.4rem;
+
+
+  &__top {
+    @include gridGap(3rem);
+
+    @include breakpoint-min(62em) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13rem;
+      width: min(100% - 2rem, 90rem);
+      margin-inline: auto;
+    }
+  }
+
+
+
+  &__text-group {
+    @include gridGap(1rem);
+    text-align: center;
+
+    @include breakpoint-min(62em) {
+      text-align: left;
+    }
+
+  }
+
+  &__title {
+    font-size: 1.5rem;
+  }
+
+  &__description {
+    @include breakpoint-min(62em) {
+      max-width: 55ch;
+    }
+  }
+
+  &__button {
+
+    &:is(:hover, :focus-visible) {
+      transform: translateY(-.25em);
+      background-color: hsl(var(--clr-blue)/ 0.8);
+    }
+
+    @include breakpoint-min(62em) {
+      justify-self: start;
+    }
+  }
+
+}

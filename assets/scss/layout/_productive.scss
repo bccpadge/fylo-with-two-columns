@@ -1,0 +1,121 @@
+@use "../abstracts/mixins" as *;
+
+.productive {
+  background-color: hsl(var(--clr-grayish-blue));
+  padding-block: 4rem;
+
+  &__banner {
+    align-self: center;
+  }
+
+  @include breakpoint-min(62em) {
+    > * {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 10rem;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+  }
+
+  &__text-group > *:not(:last-child) {
+    margin-block-start: 2rem;
+  }
+
+
+  &__description {
+    --_clr-description: 0 0% 20%;
+    max-width: 31.25rem;
+    margin-inline: auto;
+    color: hsl(var(--_clr-description));
+
+    @include breakpoint-min(62em) {
+      margin-inline: 0;
+    }
+  }
+
+  &__link {
+    --_clr-link: 169 84% 10%;
+    --_clr-link-hover: 170 31% 35%;
+    color: hsl(var(--_clr-link));
+    transition: color 300ms ease-in-out;
+    font-size: 0.9375rem;
+    display: block;
+    text-align: center;
+    border-block-end: 1px solid currentColor;
+    width: max-content;
+    margin-inline: auto;
+
+    @include breakpoint-min(62em) {
+      display: inline-block;
+    }
+
+    &::after {
+      content: url("../images/icon-arrow.svg");
+    }
+
+    &:is(:hover, :focus-visible) {
+      color: hsl(var(--_clr-link-hover));
+    }
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    color: hsl(var(--clr-dark-blue));
+    text-align: center;
+
+    @include breakpoint-min(62em) {
+      font-size: 2.2rem;
+      text-align: left;
+    }
+
+  }
+
+  &__testimonial {
+    --_clr-bkg: 0 0% 100%;
+    --_testimonial-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin-block-start: 2rem;
+    background-color: hsl(var(--_clr-bkg));
+    color: hsl(var(--clr-dark-blue));
+    max-width: 25rem;
+    padding: 2.5rem;
+
+    @include gridGap(1rem);
+    box-shadow: var(--_testimonial-box-shadow);
+    border-radius: 0.5rem;
+    margin-inline: auto;
+
+
+    @include breakpoint-min(62em) {
+      margin-inline: 0;
+    }
+  }
+
+
+  &__quote {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: url("../images/icon-quotes.svg");
+      top: -1.3rem;
+    }
+  }
+
+  &__author {
+    font-size: 0.9375rem;
+    @include flexGap(1rem);
+    align-items: center;
+
+    &-name {
+      font-weight: 700;
+    }
+  }
+
+
+  &__avatar {
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,129 @@
+@use "../abstracts/mixins" as *;
+
+.footer {
+  --_clr-text: 0 0% 100%;
+  background-color: hsl(var(--clr-dark-blue));
+  color: hsl(var(--_clr-text));
+  padding-block: 4.0625rem;
+
+  @include breakpoint-min(62em) {
+    padding-block-start: 8rem;
+    padding-inline-start: 0;
+  }
+
+
+  &__logo {
+    filter: brightness(0%) invert(100%);
+    margin-block-end: 2rem;
+  }
+
+  &__address {
+    margin-block: 2rem;
+
+    @include breakpoint-min(62em) {
+      margin-block: 0;
+    }
+  }
+
+
+
+  &__nav {
+    @include breakpoint-min(62em) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__list {
+    flex-direction: column;
+
+    &-group {
+      display: grid;
+      gap: 1rem;
+
+      @include breakpoint-min(62em) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+
+
+    &-social {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    &-link {
+      color: inherit;
+      border: 2px solid hsl(var(--_clr-text));
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-content: center;
+      border-radius: 50%;
+      transition: all 300ms ease-in-out;
+
+      &:is(:hover, :focus-visible) {
+        border-color: hsl(var(--clr-blue));
+
+        i {
+          color: hsl(var(--clr-blue));
+        }
+      }
+    }
+  }
+
+
+
+  &__scroll {
+    --_scroll-duration: 300ms ease-in-out;
+    --clr-scroll-bkg: 170 44% 19%;
+    position: fixed;
+    inset: auto 20px 20px auto;
+    color: inherit;
+    background-color: hsl(var(--clr-scroll-bkg));
+    border-radius: 50%;
+    padding: 8px;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: grid;
+    place-content: center;
+    z-index: 5;
+    transition: var(--_scroll-duration);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
+  }
+
+}
+
+.footer .navbar__list-link {
+  color: inherit;
+}
+
+.footer__list:not(:last-child) {
+  margin-block-end: 2rem;
+}
+
+.footer__address a {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: inherit;
+}
+
+.footer__address a:not(:last-child) {
+  margin-block-end: 1rem;
+}

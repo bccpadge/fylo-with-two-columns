@@ -1,0 +1,53 @@
+@use "../abstracts/mixins" as *;
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  text-align: center;
+  padding-block: 3rem;
+
+  > * {
+    flex-basis: 100%;
+  }
+
+  @media (width >=62rem) {
+    flex-direction: row-reverse;
+    align-items: center;
+    padding-block: 3rem;
+    text-align: left;
+  }
+
+  &__img {
+    max-width: 37.5rem;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+
+  &__text-group {
+    @include gridGap(1rem);
+  }
+
+  &__title {
+    font-size: clamp(1.55rem, 3vw + 1rem, 2rem);
+    font-weight: 700;
+    font-family: var(--ff-secondary);
+    color: hsl(var(--clr-dark-blue));
+
+    @media (width >=62rem) {
+      text-wrap: balance;
+    }
+  }
+
+  &__description {
+
+    --_clr-description: 0 0% 20%;
+    color: hsl(var(--_clr-description));
+
+    @media (width >=62rem) {
+      max-width: 50ch;
+    }
+  }
+
+}

@@ -1,0 +1,29 @@
+$min: 62em;
+
+
+@mixin breakpoint-min($min) {
+  @media screen and (min-width: $min) {
+    @content;
+  }
+}
+
+@mixin twoColumnGrid ($column: 2, $size: 1fr) {
+  grid-template-columns: repeat($column, $size);
+}
+
+@mixin flexBetweenCenter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+@mixin gridGap($gap) {
+  display: grid;
+  gap: $gap;
+}
+
+@mixin flexGap($gap) {
+  display: flex;
+  gap: $gap;
+}

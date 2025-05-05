@@ -1,0 +1,31 @@
+@use "../abstracts/mixins" as *;
+
+.button {
+  --_clr-button: 0 0% 100%;
+  font-weight: 700;
+  background-color: hsl(var(--clr-blue));
+  color: hsl(var(--_clr-button));
+  padding: 1.1rem 3rem;
+  border-radius: 4px;
+  transition: all 300ms ease-in-out;
+
+  &:is(:hover, :focus-visible):not(.contact__button) {
+    box-shadow: 0 0.5em 0.5em -0.35em hsl(var(--clr-blue));
+    transform: translateY(-.25em);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
+
+
+
+  &--primary {
+
+    @include breakpoint-min(62em) {
+      align-self: flex-end;
+      width: fit-content;
+    }
+
+  }
+}

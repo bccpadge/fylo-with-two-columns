@@ -1,0 +1,50 @@
+@use "../abstracts/mixins" as *;
+
+
+.form {
+  @include gridGap(1rem);
+
+  &__intro {
+
+    @include gridGap(1rem);
+
+    @include breakpoint-min(62em) {
+      @include twoColumnGrid(2, 1fr);
+    }
+  }
+
+  &__label {
+    margin-block-end: 0.5rem;
+    display: block;
+  }
+
+  &__input {
+    padding: 1rem;
+
+    &:user-valid {
+      --_clr-border: 137 74% 27%;
+      --_clr-bg: 120 61% 90%;
+      --_clr-text: 136 74% 14%;
+      border: 2px solid hsl(var(--_clr-border));
+      background-color: hsl(var(--_clr-bg));
+      color: hsl(var(--_clr-text));
+
+    }
+
+    &:user-invalid {
+      --_clr-border: 0 65% 51%;
+      --_clr-bg: 0 74% 91%;
+      --_clr-text: 0 66% 23%;
+      border: 2px solid hsl(var(--_clr-border));
+      background-color: hsl(var(--_clr-bg));
+      color: hsl(var(--_clr-text));
+
+    }
+  }
+}
+
+
+::placeholder {
+  color: #767676;
+  opacity: 1;
+}
